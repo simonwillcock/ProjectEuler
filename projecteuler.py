@@ -31,6 +31,26 @@ def Problem3():
 	
 	return max(getPrimeFactors(n))
 
+def Problem4():
+	# Find the largest palindrome made from the product of two 3-digit numbers.
+
+	def isPalindrome(n):
+		num_string = str(n)
+		return num_string == num_string[::-1]
+
+	
+	# First find largest product of 2 three digit numbers and then work back?
+	palindromes = []
+	i = 999
+	while i > 1:
+		for n in range(100,1000)[::-1]:
+			palindrome = isPalindrome(n * i)
+			if palindrome == True:
+				palindromes.append(n * i) 
+				break
+		i -= 1
+	return max(palindromes)
+
 if __name__ == '__main__':
 	mod = sys.modules[__name__]
 	for func in dir(mod):
