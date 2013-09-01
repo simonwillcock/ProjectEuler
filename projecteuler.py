@@ -51,6 +51,10 @@ def Problem4():
 		i -= 1
 	return max(palindromes)
 
+def Problem5():
+	# What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+	pass
+
 if __name__ == '__main__':
 	mod = sys.modules[__name__]
 	for func in dir(mod):
