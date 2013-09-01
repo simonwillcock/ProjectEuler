@@ -14,6 +14,22 @@ def Problem2():
 		return fibs
 	return sum([x for x in genFibsTo(33) if x % 2 == 0])
 
+def Problem3():
+	# What is the largest prime factor of the number 600851475143
+	def getPrimeFactors(n):
+		factors = []
+		d = 2
+		while n > 1:
+			while n % d == 0: # If number is a factor
+				factors.append(d)
+				n /= d
+			d = d + 1
+
+		return factors
+
+	n = 600851475143
+	
+	return max(getPrimeFactors(n))
 
 if __name__ == '__main__':
 	mod = sys.modules[__name__]
