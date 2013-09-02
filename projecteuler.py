@@ -33,13 +33,12 @@ def Problem3():
 
 def Problem4():
 	# Find the largest palindrome made from the product of two 3-digit numbers.
-
+	pass
 	def isPalindrome(n):
 		num_string = str(n)
 		return num_string == num_string[::-1]
 
 	
-	# First find largest product of 2 three digit numbers and then work back?
 	palindromes = []
 	i = 999
 	while i > 1:
@@ -54,6 +53,29 @@ def Problem4():
 def Problem5():
 	# What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 	pass
+	return max([x for x in range(20,1000000000) if 
+		x % 1 == 0 and 
+		x % 2 == 0 and 
+		x % 3 == 0 and 
+		x % 4 == 0 and 
+		x % 5 == 0 and 
+		x % 6 == 0 and 
+		x % 7 == 0 and 
+		x % 8 == 0 and 
+		x % 9 == 0 and 
+		x % 10 == 0 and 
+		x % 11 == 0 and 
+		x % 12 == 0 and 
+		x % 13 == 0 and 
+		x % 14 == 0 and 
+		x % 15 == 0 and 
+		x % 16 == 0 and 
+		x % 17 == 0 and 
+		x % 18 == 0 and 
+		x % 19 == 0 and 
+		x % 20 == 0 
+		])
+	
 
 if __name__ == '__main__':
 	mod = sys.modules[__name__]
