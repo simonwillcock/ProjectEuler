@@ -76,6 +76,15 @@ def Problem5():
 		x % 20 == 0 
 		])
 	
+def Problem6():
+	# Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+	sum_of_squares = 0
+	square_of_sums = 0
+	for i in range(101):
+		sum_of_squares += i**2
+		square_of_sums += i
+	# This method seems pretty slow
+	return (square_of_sums**2) - sum_of_squares
 
 if __name__ == '__main__':
 	mod = sys.modules[__name__]
