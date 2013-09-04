@@ -33,7 +33,7 @@ def Problem3():
 
 def Problem4():
 	# Find the largest palindrome made from the product of two 3-digit numbers.
-	pass
+	
 	def isPalindrome(n):
 		num_string = str(n)
 		return num_string == num_string[::-1]
@@ -52,8 +52,7 @@ def Problem4():
 
 def Problem5():
 	# What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
-	pass
-	"""
+
 	return max([x for x in range(20,1000000000) if 
 		x % 1 == 0 and 
 		x % 2 == 0 and 
@@ -76,8 +75,8 @@ def Problem5():
 		x % 19 == 0 and 
 		x % 20 == 0 
 		])
-	"""
 	
+
 def Problem6():
 	# Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 	sum_of_squares = 0
@@ -90,11 +89,33 @@ def Problem6():
 	
 	return (square_of_sums**2) - sum_of_squares
 
+def Problem7():
+	# What is the 10 001st prime number?
+	def isPrime(i):
+		if i <= 1:
+			return False
+		elif i == 2:
+			return True
+		elif i % 2 == 0:
+			return False
+
+		counter = 3
+		while (counter * counter) <= i:
+			if i % counter == 0:
+				return False
+			else:
+				counter += 2
+		return True
+
+	numPrimes = 1
+	curNum = 1
+	while numPrimes < 10001:
+		curNum = curNum + 2
+		if isPrime(curNum):
+			numPrimes += 1
+	return curNum
+
 if __name__ == '__main__':
-	mod = sys.modules[__name__]
-	for func in dir(mod):
-		callableFunc = getattr(mod, func)
-		if callable(callableFunc):
-			print(str(func) + ": " + str(callableFunc()))
+	print(Problem7())
 	
 	
