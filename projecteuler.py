@@ -91,7 +91,17 @@ def Problem6():
 
 def Problem7():
 	# What is the 10 001st prime number?
-	def isPrime(i):
+	
+
+	numPrimes = 1
+	curNum = 1
+	while numPrimes < 10001:
+		curNum = curNum + 2
+		if isPrime(curNum):
+			numPrimes += 1
+	return curNum
+
+def isPrime(i):
 		if i <= 1:
 			return False
 		elif i == 2:
@@ -106,14 +116,6 @@ def Problem7():
 			else:
 				counter += 2
 		return True
-
-	numPrimes = 1
-	curNum = 1
-	while numPrimes < 10001:
-		curNum = curNum + 2
-		if isPrime(curNum):
-			numPrimes += 1
-	return curNum
 
 def Problem8():
 	# Find the greatest product of five consecutive digits in the 1000-digit number.
@@ -130,7 +132,11 @@ def Problem8():
 			largest = num
 	return largest
 
+def Problem9():
+	# Find the sum of all the primes below two million.
+	prime_sum = sum([x for x in range(2000000) if isPrime(x) == True])
+	return prime_sum
 if __name__ == '__main__':
-	print(Problem8())
+	print(Problem9())
 	
 	
