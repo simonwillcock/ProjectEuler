@@ -132,7 +132,7 @@ def Problem8():
 			largest = num
 	return largest
 
-def Problem9():
+def Problem10():
 	# Find the sum of all the primes below two million.
 	prime_sum = sum([x for x in range(2000000) if isPrime(x) == True])
 	return prime_sum
