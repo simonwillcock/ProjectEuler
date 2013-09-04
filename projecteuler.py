@@ -53,6 +53,7 @@ def Problem4():
 def Problem5():
 	# What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 	pass
+	"""
 	return max([x for x in range(20,1000000000) if 
 		x % 1 == 0 and 
 		x % 2 == 0 and 
@@ -75,15 +76,18 @@ def Problem5():
 		x % 19 == 0 and 
 		x % 20 == 0 
 		])
+	"""
 	
 def Problem6():
 	# Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 	sum_of_squares = 0
 	square_of_sums = 0
 	for i in range(101):
-		sum_of_squares += i**2
 		square_of_sums += i
-	# This method seems pretty slow
+
+	# Yay list comprehensions!
+	sum_of_squares = sum([x**2 for x in range(101)])
+	
 	return (square_of_sums**2) - sum_of_squares
 
 if __name__ == '__main__':
