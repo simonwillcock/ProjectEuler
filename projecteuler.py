@@ -169,22 +169,8 @@ def Problem10():
 def Problem11():
 	grid_file = file('problem11.txt')
 	row_list = triangle_file.readlines()
+	print(row_list)
 	
-	grid_string = grid_string.split("\n")
-	print(grid_string)
-	grid = []
-	for row in range(0,20):
-		for col in range(0,20):
-			# grid[row][col] = grid_string[((row + 1) * 20) + (col + 1)]
-			# print(grid_string[x+(19 * y)])
-			# print(x+(19*y))
-			# grid[y][x] = grid_string[x+(19 * y)]
-			pass
-	# print(grid_string[0])
-	# print(grid)
-
-
-	pass
 
 def Problem16():
 	x = 2**1000
@@ -260,6 +246,6 @@ def Problem18():
 
 
 if __name__ == '__main__':
-	print(Problem18()) 
+	print(Problem11()) 
 	
 	
