@@ -132,11 +132,134 @@ def Problem8():
 			largest = num
 	return largest
 
+def Problem9():
+	"""
+	A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+
+	a**2 + b**2 = c**2
+	For example, 3**2 + 4**2 = 9 + 16 = 25 = 5**2.
+
+	There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+	Find the product abc.
+	"""
+
+	def check_triple(a,b,c):
+		if a**2 + b**2 == c**2 and a < b and b < c:
+			return True
+		else:
+			return False
+
+	for a in range(1,1001):
+		for b in range(1,1001):
+			for c in range(1,1001):
+				if a + b + c == 1000:
+					is_triple = check_triple(a,b,c)
+					if is_triple == True:
+						return (a*b*c,(a, b, c))
+
+
+
+
+
 def Problem10():
 	# Find the sum of all the primes below two million.
 	prime_sum = sum([x for x in range(2000000) if isPrime(x) == True])
 	return prime_sum
+
+def Problem11():
+	grid_file = file('problem11.txt')
+	row_list = triangle_file.readlines()
+	
+	grid_string = grid_string.split("\n")
+	print(grid_string)
+	grid = []
+	for row in range(0,20):
+		for col in range(0,20):
+			# grid[row][col] = grid_string[((row + 1) * 20) + (col + 1)]
+			# print(grid_string[x+(19 * y)])
+			# print(x+(19*y))
+			# grid[y][x] = grid_string[x+(19 * y)]
+			pass
+	# print(grid_string[0])
+	# print(grid)
+
+
+	pass
+
+def Problem16():
+	x = 2**1000
+	print(x)
+	total = 0
+	for i in str(x):
+		total += int(i)
+
+	return total
+
+def Problem17():
+	"""
+	If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
+
+	If all the numbers from 1 to 1000 (one thousand) inclusive were written out in words, how many letters would be used?
+
+	NOTE: do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
+	"""
+	ones = {0: 'Zero', 1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six', 7: 'Seven', 8: 'Eight', 9: 'Nine'}
+	tens = {10: 'Ten', 20: 'Twenty', 30: 'Thirty', 40: 'Forty', 50: 'Fifty', 60: 'Sixty', 70: 'Seventy', 80: 'Eighty', 90: 'Ninety'}
+	hundreds = {100: 'One Hundred', 200: 'Two Hundred', 300: 'Three Hundred', 400: 'Four Hundred', 500: 'Five Hundred', 600: 'Six Hundred', 700: 'Seven Hundred', 800: 'Eight Hundred', 900: 'Nine Hundred'}
+	thousands = {1000: 'One Thousand'}
+	special_case = {11: 'Eleven', 12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', 15: 'Fifteen', 16: 'Sixteen', 17: 'Seventeen', 18: 'Eighteen', 19: 'Nineteen'}
+	total_letters = 0
+
+	def ones_and_tens_in_words(number):
+		num_length = len(str(number))
+		if num_length == 1:
+			return ones[number]
+		elif num_length == 2:
+			num_str = str(number)
+			if num_str[0] == '1' and num_str[1] != '0':
+				return special_case[number]
+			elif num_str[1] == '0':
+				return tens[number]
+			else:
+				return tens[int(num_str[0] + '0')] + ones[int(num_str[1])]
+	def hundreds_in_words(number):
+		num_str = str(number)
+		hundred_base = int(num_str[0] + '00')
+		if num_str[1] == '0' and num_str[2] == '0':
+			return hundreds[hundred_base]
+		else:
+			return hundreds[hundred_base] + 'and' + ones_and_tens_in_words(number - hundred_base)
+
+	def number_in_words(number):
+		num_length = len(str(number))
+		if num_length < 3:
+			return ones_and_tens_in_words(number)
+		elif num_length == 3:
+			return hundreds_in_words(number)
+		else:
+			print(thousands[number])
+			return thousands[number]
+	
+	for x in range(1,1001):
+		total_letters += len(number_in_words(x).replace(' ',''))
+
+	return total_letters
+
+def Problem18():
+	triangle_file = file('problem18.txt')
+	triangle_list = triangle_file.readlines()
+	total = 1
+	max_list = []
+	for row in triangle_list:
+		s = row.replace('\n','')
+		s = s.split()
+		max_list.append(max(s))
+	for x in max_list:
+		total = total * int(x)
+	return total
+
+
 if __name__ == '__main__':
-	print(Problem9())
+	print(Problem18()) 
 	
 	
